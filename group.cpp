@@ -57,10 +57,12 @@ Child Group::newChild()
 
 void Group::childList()
 {
+    std::cout << "     " << "Nombre" << "                             " << "Curso" << "   " << "Sexo" << std::endl;
     for( unsigned i = 0; i<this->mChilds.size(); i++)
     {
-        std::cout << "Niño numero " << i+1 << std::endl;
+        std::cout << i+1 << ".   ";
         this->mChilds[i].showChild();
         std::cout << std::endl;
     }
 }
+

@@ -30,13 +30,24 @@ Child::Child(std::string _name, int _course, char _gender)
 
 void Child::showChild()
 {
-    std::cout << "Nombre: " << this->mName << std::endl;
-    std::cout << "Curso: " << this->mCourse << std::endl;
-    if( this->mGender == 'H' || this->mGender == 'h')
+    unsigned maxNameLength = 35;
+
+    //std::cout << "Nombre: " << this->mName << std::endl;
+    std::cout << this->mName;
+
+    for( unsigned i = this->mName.size(); i<maxNameLength; i++ )
     {
-        std::cout << "Sexo: hembra" << std::endl;
-    }else{
-        std::cout << "Sexo: macho" << std::endl;
+        std::cout << " ";
     }
 
+    //std::cout << "Curso: " << this->mCourse << std::endl;
+    std::cout << this->mCourse << "       ";
+    if( this->mGender == 'H' || this->mGender == 'h')
+    {
+        //std::cout << "Sexo: hembra" << std::endl;
+        std::cout << "Hembra";
+    }else{
+        //std::cout << "Sexo: macho" << std::endl;
+        std::cout << "Macho";
+    }
 }
