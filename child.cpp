@@ -10,6 +10,7 @@ Child::Child(std::string _name, int _course, char _gender)
     if( (_course != 5) && (_course != 6) && (_course != 1) && (_course != 2) )
     {
         std::cout << "ERROR: solo se admiten como cursos 5, 6, 1 y 2" << std::endl;
+        system("Pause");
         this->mError = 1;
         return;
     }
@@ -17,6 +18,7 @@ Child::Child(std::string _name, int _course, char _gender)
     if( _gender != 'H' && _gender != 'h' && _gender != 'm' && _gender != 'M' )
     {
         std::cout << "ERROR: solo se admiten como sexos H (hembra) o M (macho)" << std::endl;
+        system("Pause");
         this->mError = 1;
         return;
     }

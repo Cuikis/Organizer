@@ -15,7 +15,7 @@ public:
 
     // Methods
     void save(Group);
-    Group load();
+    Group load(std::string _fileName);
 };
 
 #endif // MEMORY_H

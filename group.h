@@ -9,9 +9,11 @@ class Group
 {
 public:
     Group();
+    Group(int);
 
     // Members
     std::vector<Child> mChilds;
+    std::string mGroupName;
 
     // Methods
     Child newChild();
