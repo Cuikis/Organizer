@@ -19,10 +19,10 @@ public:
 
     int         mError;     // If any parameters is not valid, this variable value is 1
 
-    unsigned    maxNameLength = 35;
+    unsigned    maxNameLength = 35; // Maximum length for a name
 
     // Methods
-    void showChild();
+    void showChild();       // Print data
 };
 
 #endif // CHILD_H

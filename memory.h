@@ -10,12 +10,12 @@ public:
     Memory();
 
     // Members
-    std::ofstream mOutFile;
-    std::ifstream mInFile;
+    std::ofstream mOutFile;         // To write in a file
+    std::ifstream mInFile;          // To read of a file
 
     // Methods
-    void save(Group);
-    Group load(std::string _fileName);
+    void save(Group);                   // Saves group data
+    Group load(std::string _fileName);  // Loads group data
 };
 
 #endif // MEMORY_H

@@ -8,18 +8,19 @@
 class Group
 {
 public:
+    // Constructors
     Group();
     Group(int);
 
     // Members
-    std::vector<Child> mChilds;
-    std::string mGroupName;
+    std::vector<Child> mChilds;     // Childs of the group
+    std::string mGroupName;         // Group's name
 
     // Methods
-    Child newChild();
+    Child newChild();                           // Adds a new child to the group
     void newChild(std::string, int, char);
 
-    void childList();
+    void childList();                           // List all the group childs
 };
 
 #endif // GROUP_H
