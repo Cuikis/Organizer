@@ -15,6 +15,7 @@ public:
 
     // Methods
     Child newChild();
+    void newChild(std::string, int, char);
 
     void childList();
 };

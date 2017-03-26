@@ -5,8 +5,10 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     child.cpp \
-    group.cpp
+    group.cpp \
+    memory.cpp
 
 HEADERS += \
     child.h \
-    group.h
+    group.h \
+    memory.h

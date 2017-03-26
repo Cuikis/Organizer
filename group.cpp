@@ -55,6 +55,12 @@ Child Group::newChild()
     return Child(name,course,gender);
 }
 
+void Group::newChild(std::string _name, int _course, char _gender)
+{
+    Child child(_name,_course,_gender);
+    this->mChilds.push_back(child);
+}
+
 void Group::childList()
 {
     std::cout << "     " << "Nombre" << "                             " << "Curso" << "   " << "Sexo" << std::endl;

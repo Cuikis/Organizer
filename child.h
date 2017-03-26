@@ -19,6 +19,8 @@ public:
 
     int         mError;     // If any parameters is not valid, this variable value is 1
 
+    unsigned    maxNameLength = 35;
+
     // Methods
     void showChild();
 };
