@@ -23,6 +23,7 @@ Child::Child(std::string _name, int _course, char _gender)
         return;
     }
 
+    // Name with blank spaces fill 35 characters
     this->mName = _name;
     std::string blankSpaces(this->maxNameLength-_name.size(),' ');
     this->mName.insert(this->mName.size(),blankSpaces);
@@ -36,26 +37,17 @@ Child::Child(std::string _name, int _course, char _gender)
 
 void Child::showChild()
 {
-    //unsigned maxNameLength = 35;
-
-    //std::cout << "Nombre: " << this->mName << std::endl;
     std::cout << this->mName;
-
-//    for( unsigned i = this->mName.size(); i<this->maxNameLength; i++ )
-//    {
-//        std::cout << " ";
-//    }
-
-    //std::cout << "Curso: " << this->mCourse << std::endl;
     std::string blankSpaces(7,' ');
+
     std::cout << this->mCourse << blankSpaces;
 
     if( this->mGender == 'H' || this->mGender == 'h')
     {
-        //std::cout << "Sexo: hembra" << std::endl;
         std::cout << "Hembra";
-    }else{
-        //std::cout << "Sexo: macho" << std::endl;
+    }
+    else
+    {
         std::cout << "Macho";
     }
 }

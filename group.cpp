@@ -9,7 +9,7 @@ Group::Group()
 
 Group::Group(int value)
 {
-    int instruction = 0;
+    int instruction = value*0;
     int numberOfChild = 0;
 
     Child child;
@@ -29,6 +29,29 @@ Group::Group(int value)
     {
         switch (instruction)
         {
+        case 0:
+            system("cls");
+            std::cout << "MENU GRUPO NUEVO (Nombre grupo: " << this->mGroupName << "; chavales: " << this->mChilds.size() << ")" << std::endl;
+            std::cout << "1. Cambiar nombre del grupo" << std::endl;
+            std::cout << "2. Introducir un chaval nuevo" << std::endl;
+            std::cout << "3. Mostrar lista del grupo" << std::endl;
+            std::cout << "4. Cerrar grupo" << std::endl;
+            std::cin >> instruction;
+
+            if( !std::cin.good() )
+            {
+                std::cout << "AVISO: debes introducir un numero del 1 al 4" << std::endl;
+                std::cin.clear();
+                std::cin.ignore(256,'\n');
+                instruction = 0;
+                system("Pause");
+            }
+            else
+            {
+                std::cin.ignore(256,'\n');
+            }
+            system("cls");
+            break;
         case 1:
             std::cin.ignore(256,'\n');
             std::cout << "Nuevo nombre: " << std::endl;
@@ -44,8 +67,6 @@ Group::Group(int value)
                 this->mChilds.push_back(child);
                 this->mChilds[numberOfChild].showChild();
                 numberOfChild++;
-//                std::cout << std::endl << "Introducidos " << numberOfChild << " niños." << std::endl;
-//                system("Pause");
             }
             instruction = 0;
             break;
@@ -58,15 +79,9 @@ Group::Group(int value)
             instruction =  -1;
             break;
         default:
-            system("cls");
-            std::cout << "MENU GRUPO NUEVO (Nombre grupo: " << this->mGroupName << "; chavales: " << this->mChilds.size() << ")" << std::endl;
-            std::cout << "1. Cambiar nombre del grupo" << std::endl;
-            std::cout << "2. Introducir un chaval nuevo" << std::endl;
-            std::cout << "3. Mostrar lista del grupo" << std::endl;
-            std::cout << "4. Cerrar grupo" << std::endl;
-            std::cin >> instruction;
-            std::cin.ignore(256,'\n');
-            system("cls");
+            instruction = 0;
+            std::cout << "AVISO: introduce un numero del 1 al 4" << std::endl;
+            system("Pause");
             break;
         }
     }
@@ -74,31 +89,6 @@ Group::Group(int value)
     system("cls");
     this->childList();
     system("pause");
-
-
-//    while( instruction )
-//    {
-//        std::cout << "Introduzca 1 si quiere añadir un niño," << std::endl;
-//        std::cout << "y 0 si quiere cerrar el grupo" << std::endl;
-
-//        std::cin >> instruction;
-//        std::cin.ignore(256,'\n');
-
-//        if(instruction)
-//        {
-//            child = this->newChild();
-//            if( !child.mError )
-//            {
-//                this->mChilds.push_back(child);
-//                this->mChilds[numberOfChild].showChild();
-//                numberOfChild++;
-//                std::cout << std::endl << "Introducidos " << numberOfChild << " niños." << std::endl;
-//                system("Pause");
-//            }
-//        }
-
-//        system("cls");
-//    }
 }
 
 Child Group::newChild()
@@ -136,4 +126,3 @@ void Group::childList()
         std::cout << std::endl;
     }
 }
-

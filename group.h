@@ -17,8 +17,8 @@ public:
     std::string mGroupName;         // Group's name
 
     // Methods
-    Child newChild();                           // Adds a new child to the group
-    void newChild(std::string, int, char);
+    Child newChild();                           // Adds a new child to the group asking data by cmd
+    void newChild(std::string, int, char);      // Adds a new child to the group passing the data
 
     void childList();                           // List all the group childs
 };

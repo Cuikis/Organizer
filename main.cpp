@@ -5,6 +5,7 @@
 
 #include "group.h"
 #include "memory.h"
+#include "subgroup.h"
 
 using namespace std;
 
@@ -75,54 +76,41 @@ int main()
             cout << "5. Salir del programa" << endl;
 
             cin >> instruction;
+
+            if( !std::cin.good() )
+            {
+                std::cout << "AVISO: debes introducir un numero del 1 al 5" << std::endl;
+                std::cin.clear();
+                std::cin.ignore(256,'\n');
+                instruction = 0;
+                system("Pause");
+            }
+
             system("cls");
             break;
         }
 
     }
 
-//    Memory memoria;
+    Subgroup subgrupo(groupInUse[0],5);
+    subgrupo.childList();
 
-    //memoria.save(grupo);
+    subgrupo = Subgroup(groupInUse[0],6);
+    subgrupo.childList();
 
-//    grupo = memoria.load();
+    subgrupo = Subgroup(groupInUse[0],1);
+    subgrupo.childList();
 
-//    grupo.childList();
+    subgrupo = Subgroup(groupInUse[0],2);
+    subgrupo.childList();
 
-//    memoria.save(grupo);
+    subgrupo = Subgroup(groupInUse[0],7);
+    subgrupo.childList();
 
-//    // APERTURA DE ARCHIVO PARA ESCRITURA
-//    ofstream fichero("guardado");
+    subgrupo = Subgroup(groupInUse[0],8);
+    subgrupo.childList();
 
-//    fichero << "Jose                               " << "5" << "m";
-//    fichero.close();
-
-//    // APERTURA DE ARCHIVO PARA LECTURA
-//    ifstream fichero2("guardado");
-
-//    char line[38];
-
-//    fichero2.getline(line,38);
-//    cout << line << endl;
-
-//    // COPIA CHAR A STRING (caracteres que queramos)
-////    string pureba(cadena,0,5);
-////    string segunda(cadena,5,6);
-
-////    cout << pureba << endl;
-////    cout << segunda << endl;
-//    std::string name(line,0,35);
-//    cout << name << endl;
-
-//    char number[1];
-//    number[0] = line[35];
-//    int course = atoi(number);
-
-//    cout << course << endl;
-
-//    char gender = line[36];
-
-//    cout << gender << endl;
+    system("Pause");
 
     return 0;
 }
