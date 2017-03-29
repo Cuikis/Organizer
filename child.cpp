@@ -51,3 +51,48 @@ void Child::showChild()
         std::cout << "Macho";
     }
 }
+
+void Child::partnerCall(int _course,char _gender,int _ID)
+{
+    int course,gender,ID;
+
+    switch (_course)
+    {
+    case 5:
+        course = 0;
+        break;
+    case 6:
+        course = 1;
+        break;
+    case 1:
+        course = 2;
+        break;
+    case 2:
+        course = 3;
+        break;
+    }
+
+    if( _gender == 'H' || _gender == 'h' )
+    {
+        gender = 0;
+    }
+    else
+    {
+        gender = 1;
+    }
+
+    ID = _ID;
+
+    this->list[course][gender][ID]++;
+}
+
+
+void Child::setID(int _ID)
+{
+    this->mID = _ID;
+}
+
+void Child::setListHigh(int course,int gender,int ID)
+{
+    this->list[course][gender][ID] = 2147483647;
+}

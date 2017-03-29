@@ -6,6 +6,7 @@
 #include "group.h"
 #include "memory.h"
 #include "subgroup.h"
+#include "functions.h"
 
 using namespace std;
 
@@ -60,7 +61,10 @@ int main()
             cout << "Introduzca el nombre del grupo a cargar: " << endl;
             getline(cin,fileName);
             group = memory.load(fileName);
-            groupInUse.push_back(group);
+            if( group.mChilds.size() != (unsigned)0 )
+            {
+                groupInUse.push_back(group);
+            }
             instruction = 0;
             break;
         case 5:
@@ -92,23 +96,32 @@ int main()
 
     }
 
-    Subgroup subgrupo(groupInUse[0],5);
-    subgrupo.childList();
+    allocate(groupInUse[0]);
+//    Subgroup subgrupo(groupInUse[0],5);
+//    subgrupo.childList();
 
-    subgrupo = Subgroup(groupInUse[0],6);
-    subgrupo.childList();
 
-    subgrupo = Subgroup(groupInUse[0],1);
-    subgrupo.childList();
+//    cout << endl;
 
-    subgrupo = Subgroup(groupInUse[0],2);
-    subgrupo.childList();
+//    subgrupo = Subgroup(subgrupo,7);
+//    subgrupo.childList();
 
-    subgrupo = Subgroup(groupInUse[0],7);
-    subgrupo.childList();
+//    cout << endl;
 
-    subgrupo = Subgroup(groupInUse[0],8);
-    subgrupo.childList();
+//    subgrupo = Subgroup(groupInUse[0],6);
+//    subgrupo.childList();
+
+//    cout << endl;
+
+//    subgrupo = Subgroup(groupInUse[0],1);
+//    subgrupo.childList();
+
+//    cout << endl;
+
+//    subgrupo = Subgroup(groupInUse[0],8);
+//    subgrupo.childList();
+
+//    cout << endl;
 
     system("Pause");
 

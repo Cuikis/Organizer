@@ -32,6 +32,13 @@ Group Memory::load(std::string _fileName)
     // Directory and file
     this->mInFile = std::ifstream("./saves/"+_fileName);
 
+    if( this->mInFile.fail() )
+    {
+        std::cout << "ERROR: el archivo no existe o no se abrio con exito" << std::endl;
+        system("Pause");
+        return Group();
+    }
+
     Group group_;
 
     // I have to do this to know how many lines there are
