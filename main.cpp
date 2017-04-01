@@ -12,116 +12,91 @@ using namespace std;
 
 int main()
 {
-    locale::global(locale("spanish"));
+//    locale::global(locale("spanish"));
 
-    int instruction = 0;
+//    int instruction = 0;
 
-    std::vector<Group> groupInUse;
+//    std::vector<Group> groupInUse;
 
-    string fileName;
+//    string fileName;
 
-    Group group;
+//    Group group;
 
-    Memory memory;
+//    Memory memory;
 
-    while( instruction != -1 )
-    {
-        switch (instruction)
-        {
-        case 1:
-            group = Group(1);
-            groupInUse.push_back(group);
-            instruction = 0;
-            break;
-        case 2:
-            for( unsigned i=0; i<groupInUse.size(); i++)
-            {
-                groupInUse[i].childList();
-            }
-            system("Pause");
-            instruction = 0;
-            break;
-        case 3:
-            cout << "Seleccione el grupo cuyos datos quiere guardar" << endl;
-            std::cout << "0. No guardar ningun grupo" << std::endl;
-            for( unsigned i = 0; i<groupInUse.size(); i++)
-            {
-                std::cout << i+1 << ". " << groupInUse[i].mGroupName << endl;
-            }
-            cin >> instruction;
+//    while( instruction != -1 )
+//    {
+//        switch (instruction)
+//        {
+//        case 1:
+//            group = Group(1);
+//            groupInUse.push_back(group);
+//            instruction = 0;
+//            break;
+//        case 2:
+//            for( unsigned i=0; i<groupInUse.size(); i++)
+//            {
+//                groupInUse[i].childList();
+//            }
+//            system("Pause");
+//            instruction = 0;
+//            break;
+//        case 3:
+//            cout << "Seleccione el grupo cuyos datos quiere guardar" << endl;
+//            std::cout << "0. No guardar ningun grupo" << std::endl;
+//            for( unsigned i = 0; i<groupInUse.size(); i++)
+//            {
+//                std::cout << i+1 << ". " << groupInUse[i].mGroupName << endl;
+//            }
+//            cin >> instruction;
 
-            if( instruction )
-            {
-                memory.save(groupInUse[instruction-1]);
-                instruction = 0;
-            }
-            break;
-        case 4:
-            std::cin.ignore(256,'\n');
-            cout << "Introduzca el nombre del grupo a cargar: " << endl;
-            getline(cin,fileName);
-            group = memory.load(fileName);
-            if( group.mChilds.size() != (unsigned)0 )
-            {
-                groupInUse.push_back(group);
-            }
-            instruction = 0;
-            break;
-        case 5:
-            instruction = -1;
-            break;
-        default:
-            system("cls");
-            cout << "MENU" << endl;
-            cout << "1. Crear un nuevo grupo" << endl;
-            cout << "2. Listar los grupos existentes" << endl;
-            cout << "3. Guardar los datos de un grupo" << endl;
-            cout << "4. Cargar los datos de un grupo" << endl;
-            cout << "5. Salir del programa" << endl;
+//            if( instruction )
+//            {
+//                memory.save(groupInUse[instruction-1]);
+//                instruction = 0;
+//            }
+//            break;
+//        case 4:
+//            std::cin.ignore(256,'\n');
+//            cout << "Introduzca el nombre del grupo a cargar: " << endl;
+//            getline(cin,fileName);
+//            group = memory.load(fileName);
+//            if( group.mChilds.size() != (unsigned)0 )
+//            {
+//                groupInUse.push_back(group);
+//            }
+//            instruction = 0;
+//            break;
+//        case 5:
+//            instruction = -1;
+//            break;
+//        default:
+//            system("cls");
+//            cout << "MENU" << endl;
+//            cout << "1. Crear un nuevo grupo" << endl;
+//            cout << "2. Listar los grupos existentes" << endl;
+//            cout << "3. Guardar los datos de un grupo" << endl;
+//            cout << "4. Cargar los datos de un grupo" << endl;
+//            cout << "5. Salir del programa" << endl;
 
-            cin >> instruction;
+//            cin >> instruction;
 
-            if( !std::cin.good() )
-            {
-                std::cout << "AVISO: debes introducir un numero del 1 al 5" << std::endl;
-                std::cin.clear();
-                std::cin.ignore(256,'\n');
-                instruction = 0;
-                system("Pause");
-            }
+//            if( !std::cin.good() )
+//            {
+//                std::cout << "AVISO: debes introducir un numero del 1 al 5" << std::endl;
+//                std::cin.clear();
+//                std::cin.ignore(256,'\n');
+//                instruction = 0;
+//                system("Pause");
+//            }
 
-            system("cls");
-            break;
-        }
+//            system("cls");
+//            break;
+//        }
 
-    }
+//    }
 
-    allocate(groupInUse[0]);
-//    Subgroup subgrupo(groupInUse[0],5);
-//    subgrupo.childList();
-
-
-//    cout << endl;
-
-//    subgrupo = Subgroup(subgrupo,7);
-//    subgrupo.childList();
-
-//    cout << endl;
-
-//    subgrupo = Subgroup(groupInUse[0],6);
-//    subgrupo.childList();
-
-//    cout << endl;
-
-//    subgrupo = Subgroup(groupInUse[0],1);
-//    subgrupo.childList();
-
-//    cout << endl;
-
-//    subgrupo = Subgroup(groupInUse[0],8);
-//    subgrupo.childList();
-
-//    cout << endl;
+//    allocate(groupInUse[0]);
 
     system("Pause");
 

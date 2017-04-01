@@ -28,23 +28,6 @@ void    allocate(Group _group)
 
     assignment(fifthFemale,fifthMale,sixthFemale,sixthMale,
                firstFemale,firstMale,secondFemale,secondMale,list);
-
-    for( unsigned i=0; i<firstFemale.mChilds.size(); i++)
-    {
-        std::cout << firstFemale.mChilds[i].mName << "; ID: " << firstFemale.mChilds[i].mID << std::endl;
-    }
-
-//    for( unsigned i=0; i<firstFemale.mChilds[0].list.size();i++)
-//    {
-//        for(unsigned j=0; j<firstFemale.mChilds[0].list[i].size();j++)
-//        {
-//            for(unsigned k=0; k<firstFemale.mChilds[0].list[i][j].size();k++)
-//            {
-//                std::cout << "Contador: " << firstFemale.mChilds[0].list[i][j][k] << std::endl;
-//            }
-//        }
-//    }
-
 }
 
 
@@ -150,6 +133,7 @@ std::vector<std::vector<std::vector<int> > >    generateList(Subgroup fifthFemal
 }
 
 
+
 void    assignList(std::vector<std::vector<std::vector<int> > > list, Subgroup &subgroup)
 {
     for( unsigned i=0; i<subgroup.mChilds.size(); i++ )
@@ -159,6 +143,7 @@ void    assignList(std::vector<std::vector<std::vector<int> > > list, Subgroup &
 }
 
 
+
 void    assignID(Subgroup &subgroup)
 {
     for( int i=0; (unsigned)i<subgroup.mChilds.size(); i++)
@@ -166,6 +151,7 @@ void    assignID(Subgroup &subgroup)
         subgroup.mChilds[i].setID(i);
     }
 }
+
 
 
 void    assignment(Subgroup &fifthFemale, Subgroup &fifthMale, Subgroup &sixthFemale, Subgroup &sixthMale,
@@ -215,6 +201,7 @@ void    assignment(Subgroup &fifthFemale, Subgroup &fifthMale, Subgroup &sixthFe
 }
 
 
+
 void    invalidateMe(Subgroup &subgroup)
 {
     if( subgroup.mChilds.empty() )
@@ -254,4 +241,87 @@ void    invalidateMe(Subgroup &subgroup)
         ID = subgroup.mChilds[i].mID;
         subgroup.mChilds[i].setListHigh(course,gender,ID);
     }
+}
+
+
+
+std::vector<Group>  generateGroups(unsigned int _numberOfGroup,
+                                   Subgroup fifthFemale, Subgroup fifthMale,
+                                   Subgroup sixthFemale, Subgroup sixthMale,
+                                   Subgroup firstFemale, Subgroup firstMale,
+                                   Subgroup secondFemale, Subgroup secondMale)
+{
+    // Return value
+    std::vector<Group>  groups;
+
+    // Amount of childs in each subgroup
+    int number5female   = fifthFemale.mChilds.size();
+    int number5male     = fifthMale.mChilds.size();
+
+    int number6female   = sixthFemale.mChilds.size();
+    int number6male     = sixthMale.mChilds.size();
+
+    int number1female   = firstFemale.mChilds.size();
+    int number1male     = firstMale.mChilds.size();
+
+    int number2female   = secondFemale.mChilds.size();
+    int number2male     = secondMale.mChilds.size();
+
+    // Total female and male childs
+    int totalFemale = number5female + number6female +
+                      number1female + number2female;
+
+    int totalMale = number5male + number6male +
+                      number1male + number2male;
+
+    // Total 5, 6, 1 and 2 childs
+    int total5 = number5female + number5male;
+    int total6 = number6female + number6male;
+    int total1 = number1female + number1male;
+    int total2 = number2female + number2male;
+
+    // Total childs
+    int totalChilds = number5female + number5male + number6female + number6male +
+                      number1female + number1male + number2female + number2male;
+
+    std::vector<int> childsGroup = childsPerGroup(totalChilds,_numberOfGroup);
+
+
+
+    return groups;
+}
+
+
+std::vector<int>  childsPerGroup(int _totalChilds,unsigned int _numberOfGroup)
+{
+    /* Number of childs in each group:
+     * Example: we have 10 childs and want 3 groups
+     *
+     * 1) Integer part -> 10/3 = 3
+     * 2) Remainder    -> 10%3 = 1
+     * 3) Form a three-components vector with these values
+     *    vector[0] = 4 -> means in the first group there are 4 childs
+     *    vector[1] = 3 -> the second group has 3 childs
+     *    vector[2] = 3 -> the third group has 3 childs too
+     */
+    int integerPart = _totalChilds/_numberOfGroup;
+
+    int remainder   = _totalChilds%_numberOfGroup;
+
+    std::vector<int> childsPerGroup;
+
+    for( unsigned i = 0; i<_numberOfGroup; i++)
+    {
+        childsPerGroup.push_back(integerPart);
+    }
+
+    while( remainder > 0 )
+    {
+        for( unsigned i=0; i<_numberOfGroup && remainder > 0; i++, remainder--)
+        {
+            childsPerGroup[i]++;
+        }
+    }
+
+    return childsPerGroup;
 }

@@ -15,7 +15,7 @@ public:
      * 7 -> Subgroup by female
      * 8 -> Subgroup by male
      * */
-    Subgroup(Group _group, int _kindSubgroup);
+    Subgroup(Group _group, int _kindSubgroup);      // Creates a subgroup from the given group
 };
 
 #endif // SUBGROUP_H
